@@ -1,16 +1,21 @@
-# This is a sample Python script.
-
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from optimisation_api import OptimisationAPI
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class OptimisationAlgorithm:
+
+    def __init__(self, api: OptimisationAPI):
+        self.api = api  # hoisting the api to the constructor is essential for unit testing
+
+    def optimise(self):
+        appointments = self.load_data()
+        return optimise_appointments(appointments)
+
+    def load_data(self):
+        appointments = self.api.get_appointments()
+        if "bad_appointment" in appointments:
+            raise ValueError("Bad appointment !")
+        return appointments
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+def optimise_appointments(appointments):
+    return sorted(appointments)

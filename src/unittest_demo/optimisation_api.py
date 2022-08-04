@@ -14,8 +14,9 @@ class OptimisationAPI:
     def get_appointments(self):
         return self.appointments
 
-    def add_appointment(self):
-        pass
+    def add_appointment(self, list1, appointment):
+        list1.append(appointment)
+        return list1
 
     def delete_appointment(self):
         pass
